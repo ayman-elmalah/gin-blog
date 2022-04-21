@@ -1,0 +1,58 @@
+{{ define "web/articles/show" }}
+
+    {{ template "web/layouts/head" .}}
+
+    {{ template "web/layouts/navbar" .}}
+
+    {{ template "web/layouts/header" .}}
+
+    <!-- Begin Post -->
+    <div class="col-md-8 col-md-offset-2 col-xs-12">
+        <div class="mainheading">
+
+            <!-- Begin Top Meta -->
+            <div class="row post-top-meta">
+                <div class="col-md-2">
+                    <a href="author.html"><img class="author-thumb" src="https://ui-avatars.com/api/?name={{ .article.User.Name }}" alt="Sal"></a>
+                </div>
+                <div class="col-md-10">
+                    <a class="link-dark" href="author.html">{{ .article.User.Name }}</a><a href="#" class="btn follow">Follow</a>
+                    <span class="author-description">Founder of WowThemes.net and creator of <b>"Mediumish"</b> theme that you're currently previewing. Developing professional premium themes, templates, plugins, scripts since 2012.</span>
+                    <span class="post-date">{{ .article.CreatedAt | formatAsDateTime }}</span><span class="dot"></span><span class="post-read">6 min read</span>
+                </div>
+            </div>
+            <!-- End Top Menta -->
+
+            <h1 class="posttitle">{{ .article.Title }}</h1>
+
+        </div>
+
+        <!-- Begin Featured Image -->
+        <img class="featured-image img-fluid" src="/assets/web/img/demopic/10.jpg" alt="">
+        <!-- End Featured Image -->
+
+        <!-- Begin Post Content -->
+        <div class="article-post">
+            {{ .article.Content }}
+        </div>
+        <!-- End Post Content -->
+
+        <!-- Begin Tags -->
+        <div class="after-post-tags">
+            <ul class="tags">
+                <li><a href="#">Design</a></li>
+                <li><a href="#">Growth Mindset</a></li>
+                <li><a href="#">Productivity</a></li>
+                <li><a href="#">Personal Growth</a></li>
+            </ul>
+        </div>
+        <!-- End Tags -->
+
+    </div>
+    <!-- End Post -->
+
+    {{ template "web/layouts/footer" .}}
+
+    {{ template "web/layouts/foot" .}}
+
+{{ end }}

@@ -1,0 +1,43 @@
+{{ define "web/auth/register" }}
+
+    {{ template "web/layouts/head" .}}
+
+    {{ template "web/layouts/navbar" .}}
+
+    {{ template "web/layouts/header" .}}
+
+    <!-- Begin Form -->
+    <div class="col-md-12 col-md-offset-2 col-xs-12">
+        <div class="auth">
+            <div class="auth-triangle"></div>
+
+            <h2 class="auth-header">Register</h2>
+
+            <form class="auth-container" method="POST" action="/register">
+                <p>
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" placeholder="Name" value="{{ range .old.name }}{{ . }}{{ end }}">
+                    <span class="text-danger">{{ .errors.name }}</span>
+                </p>
+                <p>
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Email" value="{{ range .old.email }}{{ . }}{{ end }}">
+                    <span class="text-danger">{{ .errors.email }}</span>
+                </p>
+                <p>
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" placeholder="Password">
+                    <span class="text-danger">{{ .errors.password }}</span>
+                </p>
+                <p><button type="submit">Register</button></p>
+            </form>
+            <p class="text-center">Or <a href="/login">Login</a></p>
+        </div>
+    </div>
+    <!-- End Form -->
+
+    {{ template "web/layouts/footer" .}}
+
+    {{ template "web/layouts/foot" .}}
+
+{{ end }}

@@ -1,0 +1,19 @@
+{{ define "web/errors/404" }}
+
+    {{ template "web/layouts/head" .}}
+
+    {{ template "web/layouts/navbar" .}}
+
+    {{ template "web/layouts/header" .}}
+
+    <!-- Begin Post -->
+    <div class="col-md-8 col-md-offset-2 col-xs-12">
+        <h1>{{ .title }}</h1>
+    </div>
+    <!-- End Post -->
+
+    {{ template "web/layouts/footer" .}}
+
+    {{ template "web/layouts/foot" .}}
+
+{{ end }}
